@@ -1,38 +1,78 @@
-.App {
-  text-align: center;
+.reviewsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-image: url('https://assets.ccbp.in/frontend/react-js/reviews-bg.png');
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.reviewsParent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.carsoul-contain {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 85%;
+}
+
+.arrow-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.heading {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 40px;
+  font-weight: 500;
+  margin-top: 64px;
+}
+
+@media screen and (min-width: 768px) {
+  .heading {
+    font-size: 48px;
+    margin-top: 150px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.reviews-list {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 300px;
+}
+
+.username {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.company {
+  color: #171f46;
+  font-family: 'Roboto';
+  font-size: 14px;
+}
+
+.description {
+  text-align: center;
+  color: #171f46;
+  font-family: 'Roboto';
+  font-size: 16px;
+}
+
+.profile-details {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  align-items: center;
+  flex-direction: column;
 }

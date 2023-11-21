@@ -1,23 +1,102 @@
-import logo from './logo.svg';
 import './App.css';
-
+import React, { useState } from 'react';
 function App() {
+  const [reviewsIndex, setReviewsIndex] = useState(0);
+
+  const reviewsData = [
+    {
+      imgUrl: 'https://assets.ccbp.in/frontend/react-js/wade-warren-img.png',
+      username: 'Wade Warren',
+      companyName: 'Rang',
+      description:
+        'The most important thing I learnt is that nothing is a failure, but what we learn from that is a rich and rewarding experience.',
+    },
+    {
+      imgUrl: 'https://assets.ccbp.in/frontend/react-js/adrian-williams-img.png',
+      username: 'Adrian Williams',
+      companyName: 'WheelO',
+      description:
+        'Coming to Startup School is the best thing that has happened to me. I wish every startup in the country should get this opportunity.',
+    },
+    {
+      imgUrl: 'https://assets.ccbp.in/frontend/react-js/sherry-jhonson-img.png',
+      username: 'Sherry Johnson',
+      companyName: 'MedX',
+      description:
+        'I am glad to have such experienced mentors guiding us in every step through out the 4 weeks. I have improved personally and developed many interpersonal skills.',
+    },
+    {
+      imgUrl: 'https://assets.ccbp.in/frontend/react-js/ronald-jones-img.png',
+      username: 'Ronald Jones',
+      companyName: 'Infinos Tech',
+      description:
+        'I am really loving the way how mentors are taking care of us, the way they are explaining big theories with lots of case studies and innovative methods.',
+    },
+  ]
+
+  const leftarrow = "https://assets.ccbp.in/frontend/react-js/left-arrow-img.png";
+  const rightarrow = "https://assets.ccbp.in/frontend/react-js/right-arrow-img.png";
+
+  const handleLeftarrow = () => {
+    if (reviewsIndex > 0) {
+      setReviewsIndex((previndex) => previndex - 1)
+    } else {
+      setReviewsIndex(0);
+    }
+  }
+
+  const handleRightarrow = () => {
+    if (reviewsIndex < reviewsData.length - 1) {
+      setReviewsIndex((previndex) => previndex + 1)
+    } else {
+      setReviewsIndex(0);
+    }
+
+  };
+
+
+  {/* <div className="active">
+          <img src={reviewsData[reviewsIndex].imgUrl} alt="" />
+          <p className="username">{reviewsData[reviewsIndex].username}</p>
+          <p className="company">{reviewsData[reviewsIndex].companyName}</p>
+          <p className="description">{reviewsData[reviewsIndex].description}</p>
+        </div> */}
+
+
+
+  // <div key={index} className={index === reviewsIndex ? 'active' : ''}>
+  //   <img src={review.imgUrl} alt="" />
+  //   <p className='username'>{review.username}</p>
+  //   <p className='company'>{review.companyName}</p>
+  //   <p className='description'>{review.description}</p>
+  // </div>
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="reviewsContainer">
+      <h2 className='heading'>Reviews</h2>
+
+      <div className='carsoul-contain'>
+        <button type="btn" onClick={handleLeftarrow} className='arrow-button'>
+          <img src={leftarrow} alt="leftarrow" />
+        </button>
+        <button onClick={handleRightarrow} className='arrow-button'>
+          <img src={rightarrow} alt="rightarrow" />
+        </button>
+      </div>
+      <div className='reviews-list'>
+        {reviewsData.map((review, index) => (
+          <>
+            {index === reviewsIndex && (
+              <div className='profile-details'>
+                <img src={review.imgUrl} alt="" />
+                <p className='username'>{review.username}</p>
+                <p className='company'>{review.companyName}</p>
+                <p className='description'>{review.description}</p>
+              </div>
+            )}
+          </>
+
+        ))}
+      </div>
     </div>
   );
 }
